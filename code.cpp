@@ -7,17 +7,17 @@ GLfloat pointsize = 1.0f;
 
 void drawOneLine(GLint x, GLint y, GLint x1, GLint y1) {
 	GLint a = x;
-	GLfloat m = (y1 - y) * 1.0 / (x1 - x);       //Ğ±ÂÊ
+	GLfloat m = (y1 - y) * 1.0 / (x1 - x);       //æ–œç‡
 	GLfloat b = y - m * x;
 	GLfloat thethay = m * a + b - y;             //thetha y
-	GLfloat d0 = 2 * thethay - 1;              //³õÊ¼»¯d0
+	GLfloat d0 = 2 * thethay - 1;              //åˆå§‹åŒ–d0
 	glPointSize(pointsize);
 	GLint cx = x, cy = y;
-	glVertex2i(x, y);                         //»­µÚÒ»¸öµã
+	glVertex2i(x, y);                         //ç”»ç¬¬ä¸€ä¸ªç‚¹
 	while (a <= x1) {
 		a++;
-		thethay = m * a + b - cy;                //¸üĞÂthetha y
-		if (d0 <= 0) {                          //¸üĞÂd0
+		thethay = m * a + b - cy;                //æ›´æ–°thetha y
+		if (d0 <= 0) {                          //æ›´æ–°d0
 			d0 += 2 * thethay;
 			cy = cy;
 		}
@@ -29,7 +29,7 @@ void drawOneLine(GLint x, GLint y, GLint x1, GLint y1) {
 	}
 
 }
-void drawbresenhamcycle(GLint R) {    //Ä¬ÈÏÔ­µãÊÇ0,0 bresenhamËã·¨»­Ô²
+void drawbresenhamcycle(GLint R) {    //é»˜è®¤åŸç‚¹æ˜¯0,0 bresenhamç®—æ³•ç”»åœ†
 	GLint a = 0;
 	GLint y = (int)(R * 1.0 / (sqrt(2)));
 	GLfloat d0 = 1.25 - R;
@@ -38,7 +38,7 @@ void drawbresenhamcycle(GLint R) {    //Ä¬ÈÏÔ­µãÊÇ0,0 bresenhamËã·¨»­Ô²
 	GLint cx = 0, cy = R;
 	glVertex2i(0, 0);
 	while (a <= y) {
-		glVertex2i(a, cy);         //°Ë·Ö»­Ô²
+		glVertex2i(a, cy);         //å…«åˆ†ç”»åœ†
 		glVertex2i(-a, -cy);
 		glVertex2i(-a, cy);
 		glVertex2i(a, -cy);
@@ -60,7 +60,7 @@ void drawbresenhamcycle(GLint R) {    //Ä¬ÈÏÔ­µãÊÇ0,0 bresenhamËã·¨»­Ô²
 
 
 }
-void drawsigncycle(GLint R) {         //Õı¸º·¨»­Ô²
+void drawsigncycle(GLint R) {         //æ­£è´Ÿæ³•ç”»åœ†
 	GLint re = 0;
 	GLint x = 0;
 	GLint y = R;
@@ -89,7 +89,7 @@ void drawsigncycle(GLint R) {         //Õı¸º·¨»­Ô²
 
 }
 
-void display(void) {          //ÉèÖÃÔ°µÄ°ë¾¶
+void display(void) {          //è®¾ç½®å›­çš„åŠå¾„
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.0, 1.0f, 0.0f);
 	glBegin(GL_POINTS);
